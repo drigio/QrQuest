@@ -5,11 +5,11 @@ A simple QR Code Based Treasure Hunt Game. Traditional Treasure hunts require pa
 This app requires nothing more than a Web browser to generate hints. App can be directly installed on the mobile.
 
 ### Generating hints
-Open Hints-Generator/index.html file. Follow on screen instructions to generate the hints. Hints have to be generated for 10 groups(0 - 9).
+Open Hints-Generator/index.html file. Follow on screen instructions to generate the hints. Hints have to be generated for 10 groups(0 - 9) and only upto 10 hints per group.
 After the QR Codes have been generated, they will be saved in the _output_ directory and can be obtained from there.
 
-**The Group Code can be viewed in app at the bottom of the screen or in the log cat**
-You can only scan those QR Codes that have been generated for your group code, else it gives an error saying _"Wrong QR Code Scanned"_
+**The Group Code can be viewed in app at the bottom of the screen or in the log cat.**
+You can only scan those QR Codes that have been generated for your group code, else it gives an error saying _"Wrong QR Code Scanned."_
 
 ## License
 This project is licensed under the Apache License, Version 2.0 - see the [LICENSE.md](LICENSE.md) file for details
