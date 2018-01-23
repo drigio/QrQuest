@@ -11,7 +11,7 @@ After the QR Codes have been generated, they will be saved in the _output_ direc
 **The Group Code can be viewed in app at the bottom of the screen or in the log cat**
 You can only scan those QR Codes that have been generated for your group code, else it gives an error saying _"Wrong QR Code Scanned"_
 
-##License
+## License
 This project is licensed under the Apache License, Version 2.0 - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
