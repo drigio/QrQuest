@@ -1,8 +1,8 @@
-# QR CODE TREASURE HUNT
+# QR Quest - QR Code Treasure Hunt
 A simple QR Code Based Treasure Hunt Game. Traditional Treasure hunts require pages and manual work. This application aims at going green and paperless. Just Scan the correct QR Code and get the next hint, until you reach the FINAL DESTINATION!
 
 ## Getting Started
-This app requires nothing more than a Web browser to generate hints. Android App can be directly installed on the mobile which can be found in the /bin folder.
+QR Quest requires nothing more than a Web browser to generate hints. Android App can be directly installed on the mobile which can be found in the /bin folder.
 There are two stages while using this application.
   1. Generating hints.
   2. Scanning and playing the treasure hunt.
@@ -23,7 +23,12 @@ Install the android app. There are two options available :- 1) Hints & 2) Hunt
 
 **Hunt** - Use this option to scan a QR Code.
 
-##TODOs
+## Directory Structure
+/bin - Contains the latest binary apk of Android app.
+/Hints-Generator - Contains the Web app to generate QR Code hints.
+/Android-app - Contains source code of the android app.
+
+## TODOs
 1. Use Encryption and Decryption so that other qr code scanners wont be able to show hints.
 2. Show the Group Code Somewhere.
 3. Add an onboarding screen for simplfying instructions to use the App.

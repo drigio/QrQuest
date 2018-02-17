@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>QRCODE</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+<style>
+  body {
+    background-image: url("register-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+  }
+
+  * {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+  }
+</style>
+<script src="qrcode.min.js"></script>
+
+<body>
+  <!-- JUST TO ADD A BREAK -->
+<div style="margin-bottom: 5%; margin-top: 2%;" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <center><h1 class="display-4">QR Quest Hints Generator!</h1></center>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN STARTS HERE -->
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Procedure:</h1>
+      <ul style="list-style-type:disc;font-size: 140%;">
+        <li>Enter the hint in the given Text Box.</li>
+        <li>Choose the Group code for which you want to generate the hint.</li>
+        <li>Select the Hint number that you want to generate.</li>
+        <li>Finally hit that Generate button.</li>
+        <li>Right Click on the QR Code that is generated and click on "Save image as" to save that hint.</li>
+        <li>Congratulate yourself on <b>"Going Paperless"</b> :)</li>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <textarea id="contents" class="form-control" placeholder="Your Hint Here" style="height: 25%; width: 100%; resize: none"></textarea><br>
+
+
+           <select id = "groupCode" class="btn btn-warning">
+             <option value="0">Group Code 0</option>
+             <option value="1">Group Code 1</option>
+             <option value="2">Group Code 2</option>
+             <option value="3">Group Code 3</option>
+             <option value="4">Group Code 4</option>
+             <option value="5">Group Code 5</option>
+             <option value="6">Group Code 6</option>
+             <option value="7">Group Code 7</option>
+             <option value="8">Group Code 8</option>
+             <option value="9">Group Code 9</option>
+           </select>
+
+           <select id = "hintNo" class="btn btn-success">
+             <option value="1">Hint 1</option>
+             <option value="2">Hint 2</option>
+             <option value="3">Hint 3</option>
+             <option value="4">Hint 4</option>
+             <option value="5">Hint 5</option>
+             <option value="6">Hint 6</option>
+             <option value="7">Hint 7</option>
+             <option value="8">Hint 8</option>
+             <option value="9">Hint 9</option>
+           </select> &nbsp;
+       <button class="btn btn-info" onclick="generate()" >Generate</button>
+    </div>
+  </div>
+</div>
+
+<!-- JUST TO ADD A BREAK -->
+<div style="margin-bottom: 5%;">
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="code" style="width:200px; height:200px; float: none; margin: 0 auto; "></div>
+    </div>
+  </div>
+</div>
+
+<!-- BootStrap JS FILES -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+<script>
+  var code = new QRCode("code");
+  function generate() {
+    //Get All Values from the document
+  	var contents = document.getElementById("contents").value;
+    var groupCode = document.getElementById("groupCode").value;
+    var hintNo = document.getElementById("hintNo").value;
+
+      if(!contents) //If no Hint Provided in the Text Area
+          alert("Enter Hint in the Given Text Field");
+      else {
+        //Make QR Code Of Hint
+        var finalContent = ""+groupCode + hintNo + " " + contents;
+        console.log(finalContent);
+        code.makeCode(finalContent);
+      }
+    }
+
+
+</script>
+
+</html>
+
+<!-- BACKGROUND IMAGE COURTESY :- http://freshwallpapers.net/others/new-material-design.html  -->
