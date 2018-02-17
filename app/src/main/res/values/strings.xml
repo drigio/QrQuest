@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">QrCodeScan</string>
+    <string name="app_name">QR Quest</string>
+
+    <string name="aboutMe">
+        We are the team Kappa Phi Sigma.\n
+        We are a group of aspiring students and we believe in continuous learning.\n
+        1 part PHP, 1 part Android, 2 parts JAVA, 3 parts HTML/CSS/JS and 2 parts Geek. \n
+        Too many parts?
+    </string>
+
+    <string name="contact">
+        For Bugs/Queries :\n
+    </string>
 </resources>

@@ -1,0 +1,25 @@
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2"
+    android:orientation="vertical"
+    >
+
+    <Button
+        android:id="@+id/prev"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/hints"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/scan"
+        android:background="@drawable/hunt"
+        android:layout_weight="1"
+        />
+
+</android.support.v7.widget.LinearLayoutCompat>

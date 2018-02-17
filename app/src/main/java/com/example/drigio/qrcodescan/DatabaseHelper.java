@@ -62,4 +62,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         Cursor data = sqLiteDatabase.rawQuery(query,null);
         return data;
     }
+
+    public void deleteAll() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(TB_NAME,null,null);
+    }
 }
