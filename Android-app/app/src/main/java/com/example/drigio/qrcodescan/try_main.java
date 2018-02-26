@@ -4,7 +4,6 @@ package com.example.drigio.qrcodescan;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -26,7 +25,6 @@ public class try_main extends AppCompatActivity {
     private Button scanbtn;
     private Button prevHints;
     private TextView grpCode;
-    private TextView textContents;
     private int groupCode = 0;
     private int currentHint = 0;
     DatabaseHelper databaseHelper;
@@ -49,7 +47,6 @@ public class try_main extends AppCompatActivity {
 
         checkGroupCode();
         initializeScanner();
-        //showLastKnownHint();
 
     }
 
@@ -77,17 +74,6 @@ public class try_main extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-    /*private void showLastKnownHint() {
-        textContents = (TextView) findViewById(R.id.textContents);
-        Cursor data = databaseHelper.getDataByRawQuery();
-        if (data.getCount() <= 0) {
-            textContents.setText("Scan To Show Current Hint");
-        } else {
-            data.moveToLast();
-            textContents.setText(data.getString(1));
-        }
-    }*/
 
     void checkGroupCode() {
 
@@ -150,17 +136,32 @@ public class try_main extends AppCompatActivity {
 
             }
             //Data Found
-            else {
+                else {
+                //Decode the data from Base64 to String
+                byte[] decoded = new byte[0];
+                try {
+                    decoded = android.util.Base64.decode(result.getContents(), android.util.Base64.DEFAULT);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-                int extractedCode = Character.getNumericValue(result.getContents().charAt(0)); //Check if same Group code present
-                int extractedHint = Character.getNumericValue(result.getContents().charAt(1));
+                String extractedContents = "09 Some Random Text"; //So that the app doesn't crash
+                //Check if receiving a Base64
+                if(decoded.length > 0){
+                    try{
+                        extractedContents = new String(decoded,"UTF-8");
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }
+
+                int extractedCode = Character.getNumericValue(extractedContents.charAt(0)); //Check if same Group code present
+                int extractedHint = Character.getNumericValue(extractedContents.charAt(1));
                 Log.d("mylog", "The extracted Code is " + extractedCode);
                 Log.d("mylog", "The extracted Hint number is " + extractedHint);
                 if (extractedCode == groupCode) {
                     if (currentHint == extractedHint - 1) {
-                        //textContents = (TextView) findViewById(R.id.textContents);
-                        String content = result.getContents().substring(2).trim();
-                        //textContents.setText(content);
+                        String content = extractedContents.substring(2).trim();
                         SharedPreferences prefs = getSharedPreferences("myprefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = prefs.edit();
                         editor.putInt("currenthint", extractedHint);

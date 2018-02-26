@@ -24,12 +24,12 @@ Install the android app. There are two options available :- 1) Hints & 2) Hunt
 **Hunt** - Use this option to scan a QR Code.
 
 ## Directory Structure
-/bin - Contains the latest binary apk of Android app.
-/Hints-Generator - Contains the Web app to generate QR Code hints.
+/bin - Contains the latest binary apk of Android app.<br/>
+/Hints-Generator - Contains the Web app to generate QR Code hints.<br/>
 /Android-app - Contains source code of the android app.
 
 ## TODOs
-1. Use Encryption and Decryption so that other qr code scanners wont be able to show hints.
+1. ~~Use Encryption and Decryption so that other qr code scanners wont be able to show hints.~~ (Used Base64 encoding/decoding)<br/>
 2. Show the Group Code Somewhere.
 3. Add an onboarding screen for simplfying instructions to use the App.
 

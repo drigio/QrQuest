@@ -111,8 +111,10 @@
       else {
         //Make QR Code Of Hint
         var finalContent = ""+groupCode + hintNo + " " + contents;
-        console.log(finalContent);
-        code.makeCode(finalContent);
+        var encodedFinalContents = window.btoa(finalContent); //Simple Base64 encoding to hide data
+        // console.log(encodedFinalContents);
+        // console.log("\n" + window.atob(encodedFinalContents));
+        code.makeCode(encodedFinalContents);
       }
     }
 
